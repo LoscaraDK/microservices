@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Liste as imagens Docker e itere sobre elas
+docker images loscaradk/* --format "{{.Repository}}:{{.Tag}}" | while read -r image; do
+        docker push "$image"   
+done
