@@ -8,5 +8,6 @@ docker run -p 3308:3306 --name cardsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATA
 
 --apagar todos os containers
 docker rm $(docker container ls -aq) --force
+docker rm $(docker image ls -aq) --force
 
 
