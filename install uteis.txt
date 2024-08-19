@@ -10,4 +10,23 @@ docker run -p 3308:3306 --name cardsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATA
 docker rm $(docker container ls -aq) --force
 docker rm $(docker image ls -aq) --force
 
+para usar o redis tem que subir o redis com o comando 
+docker run -p 6379:6379 --name eazyredis -d redis
+
+configurar a propriedades 
+spring:
+  data:
+    redis:
+      connect-timeout: 2s
+      host: localhost
+      port: 6379
+      timeout: 1s
+
+ver o codigo do gateway para o path cards.
+
+KEYCLOAK start
+docker run -p 7080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.1 start-dev
+docker run -p 7080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -d quay.io/keycloak/keycloak:22.0.1 start-dev --detached
+
+
 

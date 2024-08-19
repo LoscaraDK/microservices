@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: "gatewayserver"
@@ -9,7 +12,6 @@ spring:
         locator:
           enabled: false
           lowerCaseServiceId: true
-
 management:
   endpoints:
     web:
@@ -31,6 +33,5 @@ info:
 logging:
   level:
     com:
-      eazybytes:
+      easybytes:
         gatewayserver: DEBUG
-

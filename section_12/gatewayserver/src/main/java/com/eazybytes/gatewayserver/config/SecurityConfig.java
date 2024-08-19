@@ -24,8 +24,13 @@ public class SecurityConfig {
                 .pathMatchers("/eazybank/accounts/**").hasRole("ACCOUNTS")
                 .pathMatchers("/eazybank/cards/**").hasRole("CARDS")
                 .pathMatchers("/eazybank/loans/**").hasRole("LOANS"))
+//                        .pathMatchers("/eazybank/accounts/**").authenticated()
+//                        .pathMatchers("/eazybank/cards/**").authenticated()
+//                        .pathMatchers("/eazybank/loans/**").authenticated())
                 .oauth2ResourceServer(oAuth2ResourceServerSpec -> oAuth2ResourceServerSpec
                         .jwt(jwtSpec -> jwtSpec.jwtAuthenticationConverter(grantedAuthoritiesExtractor())));
+//                .oauth2ResourceServer(oAuth2ResourceServerSpec -> oAuth2ResourceServerSpec
+//                        .jwt(Customizer.withDefaults()));
         serverHttpSecurity.csrf(csrfSpec -> csrfSpec.disable());
         return serverHttpSecurity.build();
     }
